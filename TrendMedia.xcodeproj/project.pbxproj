@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C166D2BC28854A150088DD11 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C166D2BB28854A150088DD11 /* Setting.storyboard */; };
 		C1D8ABBB2884DDBF00787330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABBA2884DDBF00787330 /* AppDelegate.swift */; };
 		C1D8ABBD2884DDBF00787330 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABBC2884DDBF00787330 /* SceneDelegate.swift */; };
 		C1D8ABBF2884DDBF00787330 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABBE2884DDBF00787330 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C166D2BB28854A150088DD11 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		C1D8ABB72884DDBF00787330 /* TrendMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D8ABBA2884DDBF00787330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D8ABBC2884DDBF00787330 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				C1D8ABBE2884DDBF00787330 /* ViewController.swift */,
 				C1D8ABC02884DDBF00787330 /* Main.storyboard */,
 				C1D8ABCE2884F10800787330 /* Home.storyboard */,
+				C166D2BB28854A150088DD11 /* Setting.storyboard */,
 				C1D8ABD02884FE3D00787330 /* SettingTableViewController.swift */,
 				C1D8ABC32884DDC000787330 /* Assets.xcassets */,
 				C1D8ABC52884DDC000787330 /* LaunchScreen.storyboard */,
@@ -133,6 +136,7 @@
 			files = (
 				C1D8ABC72884DDC000787330 /* LaunchScreen.storyboard in Resources */,
 				C1D8ABC42884DDC000787330 /* Assets.xcassets in Resources */,
+				C166D2BC28854A150088DD11 /* Setting.storyboard in Resources */,
 				C1D8ABC22884DDBF00787330 /* Main.storyboard in Resources */,
 				C1D8ABCF2884F10800787330 /* Home.storyboard in Resources */,
 			);
@@ -299,7 +303,7 @@
 				INFOPLIST_FILE = TrendMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Home;
+				INFOPLIST_KEY_UIMainStoryboardFile = Setting;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -326,7 +330,7 @@
 				INFOPLIST_FILE = TrendMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Home;
+				INFOPLIST_KEY_UIMainStoryboardFile = Setting;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
