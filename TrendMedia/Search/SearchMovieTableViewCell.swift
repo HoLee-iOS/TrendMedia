@@ -17,6 +17,9 @@ class SearchMovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var overviewLabel: UILabel!
     
+    
+    /// 셀에 데이터를 넣어주는 역할
+    /// - Parameter data: 영화에 대한 정보 들어있음
     func configureCell(data: Movie) {
         
         titleLabel.font = .boldSystemFont(ofSize: 15)

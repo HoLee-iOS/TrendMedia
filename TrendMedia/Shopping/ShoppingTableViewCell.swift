@@ -13,4 +13,20 @@ class ShoppingTableViewCell: UITableViewCell {
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var listLabel: UILabel!
     
+    var checkboxButtonTapped: (() -> Void) = {}
+    var starButtonTapped: (() -> Void) = {}
+    
+    func configureButton() {
+        checkboxButton.addTarget(self, action: #selector(checkFill), for: .touchUpInside)
+        starButton.addTarget(self, action: #selector(starFill), for: .touchUpInside)
+    }
+    
+    @objc func checkFill() {
+        checkboxButtonTapped()
+    }
+    
+    @objc func starFill() {
+        starButtonTapped()
+    }
+    
 }

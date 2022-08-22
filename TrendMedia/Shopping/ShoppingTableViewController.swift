@@ -7,17 +7,22 @@
 
 import UIKit
 
+import RealmSwift
+
 class ShoppingTableViewController: UITableViewController {
 
     @IBOutlet weak var userTextField: UITextField!
-    
     @IBOutlet weak var addButton: UIButton!
     
-    var list = ["그립톡", "사이다"]
+    let localRealm = try! Realm()
+    
+    var tasks: Results<ShoppingList>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tasks = localRealm.objects(ShoppingList.self).sorted(byKeyPath: "content", ascending: true)
+        
         userTextField.borderStyle = .none
         userTextField.layer.cornerRadius = 10
         userTextField.backgroundColor = .systemGray6
@@ -27,83 +32,80 @@ class ShoppingTableViewController: UITableViewController {
         addButton.setTitle("추가", for: .normal)
         addButton.setTitleColor(.black, for: .normal)
         
-        
-        
-    }
-
-    func showAlertController() {
-        
-        let alert = UIAlertController(title: "뭐라도 입력하세요", message: nil, preferredStyle: .alert)
-        
-        let cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
-        
-        alert.addAction(cancel)
-        
-        present(alert, animated: true)
-        
     }
     
     @IBAction func userTextFieldReturn(_ sender: UITextField) {
         
-        print(userTextField.text)
+        let task = ShoppingList(content: userTextField.text!)
         
-        if userTextField.text != "" {
-                
-            list.append(sender.text!)
-            
+        try! localRealm.write {
+            localRealm.add(task)
+            print("저장성공")
             tableView.reloadData()
-            
-        } else {
-         
-            showAlertController()
-            
         }
-        
-        
+        userTextField.text = nil
+        view.endEditing(true)
     }
+    
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
         
-        if userTextField.text != "" {
-                
-            list.append(userTextField.text!)
-            
-            tableView.reloadData()
-            
-        } else {
-         
-            showAlertController()
-            
-        }
+        let task = ShoppingList(content: userTextField.text!)
         
+        try! localRealm.write {
+            localRealm.add(task)
+            print("저장성공")
+            tableView.reloadData()
+        }
+        userTextField.text = nil
+        view.endEditing(true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return list.count
+        return tasks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTestViewCell", for: indexPath) as! ShoppingTableViewCell
         
-        cell.listLabel.text = list[indexPath.row]
+        let taskUpdate = tasks[indexPath.row]
+        
+        cell.listLabel.text = taskUpdate.content
         cell.listLabel.font = .boldSystemFont(ofSize: 15)
-        cell.checkboxButton.isSelected.toggle()
-        cell.starButton.isSelected.toggle()
         
+        cell.configureButton()
+        
+        taskUpdate.check ? cell.checkboxButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal) : cell.checkboxButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        
+        taskUpdate.favorite ? cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal) : cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+        
+        cell.checkboxButtonTapped = {
+            try! self.localRealm.write {
+                taskUpdate.check = !taskUpdate.check
+            }
+            self.tableView.reloadData()
+        }
+        
+        cell.starButtonTapped = {
+            try! self.localRealm.write {
+                taskUpdate.favorite = !taskUpdate.favorite
+            }
+            self.tableView.reloadData()
+        }
         return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+        let taskDelete = tasks[indexPath.row]
+        
         if editingStyle == .delete {
-            list.remove(at: indexPath.row)
+            try! self.localRealm.write {
+                self.localRealm.delete(taskDelete)
+            }
             tableView.reloadData()
         }
         
     }
-    
-
 }

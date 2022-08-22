@@ -26,6 +26,7 @@ class TrendTableViewController: UITableViewController {
         //2. 스토리보드 내에 뷰컨트롤러 가져오기
         let vc = sb.instantiateViewController(withIdentifier: BucketlistTableViewController.identifier) as! BucketlistTableViewController
         
+        
         //3. 화면전환 구현
         //컴플리션은 화면전환 완료후에 어떻게 할지를 물어보는 옵션
         self.present(vc, animated: true)
@@ -40,6 +41,8 @@ class TrendTableViewController: UITableViewController {
         
         //2. 스토리보드 내에 뷰컨트롤러 가져오기(필수)
         let vc = sb.instantiateViewController(withIdentifier: BucketlistTableViewController.identifier) as! BucketlistTableViewController
+        
+        vc.textfieldPlaceholder = "드라마"
         
         //2.5. 뷰컨 present 시 스타일 설정(옵션)
         vc.modalPresentationStyle = .fullScreen
@@ -58,6 +61,9 @@ class TrendTableViewController: UITableViewController {
         //2. 스토리보드 내에 뷰컨트롤러 가져오기(필수)
         let vc = sb.instantiateViewController(withIdentifier: BucketlistTableViewController.identifier) as! BucketlistTableViewController
         
+        //2.위에서 해당 identifier에 맞는 뷰컨이 갖고 있는 프로퍼티를 이용해서 데이터를 추가해줌
+        vc.textfieldPlaceholder = "도서"
+        
         //2.5. 네비게이션 컨트롤러 임베드
         let nav = UINavigationController(rootViewController: vc)
         
@@ -68,6 +74,7 @@ class TrendTableViewController: UITableViewController {
         //3. 화면전환 구현(필수)
         //컴플리션은 화면전환 완료후에 어떻게 할지를 물어보는 옵션
         self.present(nav, animated: true)
+        
         
     }
     

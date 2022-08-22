@@ -13,10 +13,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+//        UserDefaults.standard.set(false, forKey: "First") //>> 다른 화면에 배치해야함
+//        true이면 ViewController, false이면 SearchMovieTableViewController
+        
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        
+        //화면을 보여주게 해주는 코드
+        window?.makeKeyAndVisible()
+        
+        if UserDefaults.standard.bool(forKey: "First") {
+
+            //가장 첫번째로 뜰 루트뷰화면을 제작
+            let sb = UIStoryboard(name: "Trend", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "LaunchViewController") as! LaunchViewController
+
+            window?.rootViewController = vc
+
+
+        } else {
+
+            //가장 첫번째로 뜰 루트뷰화면을 제작
+            let sb = UIStoryboard(name: "Shopping", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "ShoppingTableViewController") as! ShoppingTableViewController
+
+            //아래와 같은 코드로 불러오면 네비게이션 컨트롤러 사용 가능함
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+
+        }
+        //화면을 보여주게 해주는 코드
+        window?.makeKeyAndVisible()
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
