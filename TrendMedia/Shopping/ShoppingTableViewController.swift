@@ -142,4 +142,28 @@ class ShoppingTableViewController: UITableViewController {
         }
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let task = tasks[indexPath.row]
+        
+        let vc = ShoppingDetailViewController()
+        
+        vc.detailLabel.text = task.content
+        
+        if task.check {
+            vc.detailCheck.text = "이미 구매한 상품입니다😊"
+        } else {
+            vc.detailCheck.text = "아직 구매하지 않은 상품입니다🙂"
+        }
+        
+        if task.favorite {
+            vc.detailFavorite.text = "즐겨찾기하신 상품입니다😁"
+        } else {
+            vc.detailFavorite.text = "즐겨찾기가 되지 않은 상품입니다🥹"
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }

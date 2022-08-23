@@ -40,6 +40,8 @@
 		C1D8ABC72884DDC000787330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D8ABC52884DDC000787330 /* LaunchScreen.storyboard */; };
 		C1D8ABCF2884F10800787330 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D8ABCE2884F10800787330 /* Home.storyboard */; };
 		C1D8ABD12884FE3D00787330 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABD02884FE3D00787330 /* HomeTableViewController.swift */; };
+		C1ED475F28B4B844003B45FA /* ShoppingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED475E28B4B844003B45FA /* ShoppingDetailViewController.swift */; };
+		C1ED476228B4BD88003B45FA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1ED476128B4BD88003B45FA /* SnapKit */; };
 		C1F13E0D2886453400C26DFC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F13E0C2886453400C26DFC /* UIViewController+Extension.swift */; };
 		C1F13E0F2886479100C26DFC /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F13E0E2886479100C26DFC /* UITextField+Extension.swift */; };
 		C1F13E1128864B9D00C26DFC /* BucketlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F13E1028864B9D00C26DFC /* BucketlistTableViewController.swift */; };
@@ -78,6 +80,7 @@
 		C1D8ABC82884DDC000787330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1D8ABCE2884F10800787330 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		C1D8ABD02884FE3D00787330 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		C1ED475E28B4B844003B45FA /* ShoppingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDetailViewController.swift; sourceTree = "<group>"; };
 		C1F13E0C2886453400C26DFC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C1F13E0E2886479100C26DFC /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		C1F13E1028864B9D00C26DFC /* BucketlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistTableViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 				C1B9948E28B3619B005943E8 /* Realm in Frameworks */,
 				C1C3F1682887AE6000886673 /* Toast in Frameworks */,
 				C1C3F1652887AE4E00886673 /* Kingfisher in Frameworks */,
+				C1ED476228B4BD88003B45FA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +127,7 @@
 				C12004D8288676F80039554B /* Shopping.storyboard */,
 				C12004DC2886778A0039554B /* ShoppingTableViewCell.swift */,
 				C12004DA288677560039554B /* ShoppingTableViewController.swift */,
+				C1ED475E28B4B844003B45FA /* ShoppingDetailViewController.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				C1C3F1672887AE6000886673 /* Toast */,
 				C1B9948D28B3619B005943E8 /* Realm */,
 				C1B9948F28B3619B005943E8 /* RealmSwift */,
+				C1ED476128B4BD88003B45FA /* SnapKit */,
 			);
 			productName = TrendMedia;
 			productReference = C1D8ABB72884DDBF00787330 /* TrendMedia.app */;
@@ -258,6 +264,7 @@
 				C1C3F1632887AE4E00886673 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C1C3F1662887AE6000886673 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				C1B9948C28B3619B005943E8 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C1ED476028B4BD87003B45FA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = C1D8ABB82884DDBF00787330 /* Products */;
 			projectDirPath = "";
@@ -292,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1ED475F28B4B844003B45FA /* ShoppingDetailViewController.swift in Sources */,
 				C1F13E0F2886479100C26DFC /* UITextField+Extension.swift in Sources */,
 				C1C3F15E288792B100886673 /* MovieInfo.swift in Sources */,
 				C12004DD2886778A0039554B /* ShoppingTableViewCell.swift in Sources */,
@@ -559,6 +567,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C1ED476028B4BD87003B45FA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -581,6 +597,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C1C3F1662887AE6000886673 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		C1ED476128B4BD88003B45FA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1ED476028B4BD87003B45FA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
