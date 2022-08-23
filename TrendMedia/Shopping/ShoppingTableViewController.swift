@@ -16,7 +16,18 @@ class ShoppingTableViewController: UITableViewController {
     
     let localRealm = try! Realm()
     
-    var tasks: Results<ShoppingList>!
+    var tasks: Results<ShoppingList>! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    let menuButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.image = UIImage(systemName: "list.dash")
+        button.tintColor = .black
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +43,29 @@ class ShoppingTableViewController: UITableViewController {
         addButton.setTitle("추가", for: .normal)
         addButton.setTitleColor(.black, for: .normal)
         
+        navigationItem.rightBarButtonItem = menuButton
+
+        let sortContent = UIAction(title: "할 일 기준 정렬") { _ in
+            self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "content", ascending: true)
+        }
+        
+        let sortFavorite = UIAction(title: "즐겨찾기순 정렬") { _ in
+            self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "favorite", ascending: false)
+        }
+        
+        let sortCheck = UIAction(title: "체크순 정렬") { _ in
+            self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "check", ascending: false)
+        }
+        
+        let cancel = UIAction(title: "취소", attributes: .destructive) { _ in
+            print("취소")
+        }
+        
+        menuButton.menu = UIMenu(title: "",
+                                 image: UIImage(systemName: "heart.fill"),
+                                 identifier: nil,
+                                 options: .destructive,
+                                 children: [sortContent, sortFavorite, sortCheck, cancel])
     }
     
     @IBAction func userTextFieldReturn(_ sender: UITextField) {
