@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import PhotosUI
 
 import RealmSwift
 
 class ShoppingTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     
@@ -22,6 +23,8 @@ class ShoppingTableViewController: UITableViewController {
         }
     }
     
+    var objectID: ObjectId?
+    
     let menuButton: UIBarButtonItem = {
         let button = UIBarButtonItem()
         button.image = UIImage(systemName: "list.dash")
@@ -31,7 +34,7 @@ class ShoppingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tasks = localRealm.objects(ShoppingList.self).sorted(byKeyPath: "content", ascending: true)
         
         userTextField.borderStyle = .none
@@ -44,7 +47,7 @@ class ShoppingTableViewController: UITableViewController {
         addButton.setTitleColor(.black, for: .normal)
         
         navigationItem.rightBarButtonItem = menuButton
-
+        
         let sortContent = UIAction(title: "할 일 기준 정렬") { _ in
             self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "content", ascending: true)
         }
@@ -66,11 +69,12 @@ class ShoppingTableViewController: UITableViewController {
                                  identifier: nil,
                                  options: .destructive,
                                  children: [sortContent, sortFavorite, sortCheck, cancel])
+        
     }
     
     @IBAction func userTextFieldReturn(_ sender: UITextField) {
         
-        let task = ShoppingList(content: userTextField.text!)
+        lazy var task = ShoppingList(content: userTextField.text!)
         
         try! localRealm.write {
             localRealm.add(task)
@@ -86,6 +90,8 @@ class ShoppingTableViewController: UITableViewController {
         
         let task = ShoppingList(content: userTextField.text!)
         
+        objectID = task.objectId
+        
         try! localRealm.write {
             localRealm.add(task)
             print("저장성공")
@@ -93,6 +99,18 @@ class ShoppingTableViewController: UITableViewController {
         }
         userTextField.text = nil
         view.endEditing(true)
+        
+        print(localRealm.configuration.fileURL!)
+        
+        
+        //phpicker 생성
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .any(of: [.images])
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        self.present(picker, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,6 +153,11 @@ class ShoppingTableViewController: UITableViewController {
         let taskDelete = tasks[indexPath.row]
         
         if editingStyle == .delete {
+            
+            print(taskDelete.objectId)
+            
+            removeImageFromDocument(fileName: "\(taskDelete.objectId).jpg")
+            
             try! self.localRealm.write {
                 self.localRealm.delete(taskDelete)
             }
@@ -163,7 +186,35 @@ class ShoppingTableViewController: UITableViewController {
             vc.detailFavorite.text = "즐겨찾기가 되지 않은 상품입니다🥹"
         }
         
+        print(task.objectId)
+        vc.detailImage.image = loadImageFromDocument(fileName: "\(task.objectId).jpg")
+        
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }
+
+extension ShoppingTableViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider,
+            itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                guard let objectId = self.objectID else { return }
+                guard let itemImage = image else { return }
+                self.saveImageToDocument(fileName: "\(objectId).jpg", image: itemImage as? UIImage)
+                print(objectId)
+            }
+        }
+    }
+}
+
+
+
+
+
+

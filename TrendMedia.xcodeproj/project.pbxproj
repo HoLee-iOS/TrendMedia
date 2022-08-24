@@ -32,6 +32,7 @@
 		C1C3F16228879E0C00886673 /* RecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3F16128879E0C00886673 /* RecommandCollectionViewCell.swift */; };
 		C1C3F1652887AE4E00886673 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3F1642887AE4E00886673 /* Kingfisher */; };
 		C1C3F1682887AE6000886673 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3F1672887AE6000886673 /* Toast */; };
+		C1D29AAD28B6063D00FEBEDF /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D29AAC28B6063D00FEBEDF /* FileManager+Extension.swift */; };
 		C1D8ABBB2884DDBF00787330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABBA2884DDBF00787330 /* AppDelegate.swift */; };
 		C1D8ABBD2884DDBF00787330 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABBC2884DDBF00787330 /* SceneDelegate.swift */; };
 		C1D8ABBF2884DDBF00787330 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABBE2884DDBF00787330 /* ViewController.swift */; };
@@ -70,6 +71,7 @@
 		C1C3F15D288792B100886673 /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		C1C3F15F28879AA300886673 /* RecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewController.swift; sourceTree = "<group>"; };
 		C1C3F16128879E0C00886673 /* RecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1D29AAC28B6063D00FEBEDF /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		C1D8ABB72884DDBF00787330 /* TrendMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D8ABBA2884DDBF00787330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D8ABBC2884DDBF00787330 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				C1F13E0E2886479100C26DFC /* UITextField+Extension.swift */,
 				C1F13E0C2886453400C26DFC /* UIViewController+Extension.swift */,
+				C1D29AAC28B6063D00FEBEDF /* FileManager+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				C1C3F1582887870300886673 /* SearchMovieTableViewController.swift in Sources */,
 				C19EA7B7288643FD007B4E03 /* TrendViewController.swift in Sources */,
 				C1D8ABBD2884DDBF00787330 /* SceneDelegate.swift in Sources */,
+				C1D29AAD28B6063D00FEBEDF /* FileManager+Extension.swift in Sources */,
 				C1C3F16228879E0C00886673 /* RecommandCollectionViewCell.swift in Sources */,
 				C12004DF28869B200039554B /* SearchTableViewCell.swift in Sources */,
 			);
