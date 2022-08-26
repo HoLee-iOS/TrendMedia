@@ -41,6 +41,7 @@
 		C1D8ABC72884DDC000787330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D8ABC52884DDC000787330 /* LaunchScreen.storyboard */; };
 		C1D8ABCF2884F10800787330 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D8ABCE2884F10800787330 /* Home.storyboard */; };
 		C1D8ABD12884FE3D00787330 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8ABD02884FE3D00787330 /* HomeTableViewController.swift */; };
+		C1DC395228B7A4E40031AF12 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = C1DC395128B7A4E40031AF12 /* Zip */; };
 		C1ED475F28B4B844003B45FA /* ShoppingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED475E28B4B844003B45FA /* ShoppingDetailViewController.swift */; };
 		C1ED476228B4BD88003B45FA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1ED476128B4BD88003B45FA /* SnapKit */; };
 		C1F13E0D2886453400C26DFC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F13E0C2886453400C26DFC /* UIViewController+Extension.swift */; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1DC395228B7A4E40031AF12 /* Zip in Frameworks */,
 				C1B9949028B3619B005943E8 /* RealmSwift in Frameworks */,
 				C1B9948E28B3619B005943E8 /* Realm in Frameworks */,
 				C1C3F1682887AE6000886673 /* Toast in Frameworks */,
@@ -234,6 +236,7 @@
 				C1B9948D28B3619B005943E8 /* Realm */,
 				C1B9948F28B3619B005943E8 /* RealmSwift */,
 				C1ED476128B4BD88003B45FA /* SnapKit */,
+				C1DC395128B7A4E40031AF12 /* Zip */,
 			);
 			productName = TrendMedia;
 			productReference = C1D8ABB72884DDBF00787330 /* TrendMedia.app */;
@@ -268,6 +271,7 @@
 				C1C3F1662887AE6000886673 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				C1B9948C28B3619B005943E8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				C1ED476028B4BD87003B45FA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C1DC395028B7A4E40031AF12 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = C1D8ABB82884DDBF00787330 /* Products */;
 			projectDirPath = "";
@@ -571,6 +575,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C1DC395028B7A4E40031AF12 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		C1ED476028B4BD87003B45FA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -601,6 +613,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C1C3F1662887AE6000886673 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		C1DC395128B7A4E40031AF12 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1DC395028B7A4E40031AF12 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		C1ED476128B4BD88003B45FA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
